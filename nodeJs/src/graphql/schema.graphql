@@ -1,0 +1,16 @@
+type Mutation {
+  "add topic"
+  addTopic(topicName: String!): Int!
+  "produce a message"
+  produce(topicName: String!, messages: [String!]!): Boolean!
+}
+
+type Query {
+  "get topics list"
+  getAllTopics: String!
+}
+
+type Subscription {
+  "add consumer"
+  consume(topicName: String!, consumerGroup: String!): String
+}

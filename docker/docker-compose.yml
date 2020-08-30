@@ -1,5 +1,18 @@
 version: "3.7"
 services: 
+  app-graph:
+    restart: always
+    build:
+      context: .
+      dockerfile: ./node/Dockerfile
+    volumes:
+      - ../nodeJs:/app
+    environment:
+      - NODE_ENV="development"
+    ports:
+      - 4000:4000
+    depends_on:
+      - kafka
   zookeeper:
     container_name: zookeeper
     image: wurstmeister/zookeeper
